@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +8,32 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <h1>Word Guess Game</h1>
         <button>Start</button>
     </header>
+    <main>
+        <div class="card word-guess">
+            <div class="large-word">J _ v _ s c r _ _ t</div>
+        </div>
+        <div class="card score">
+            <div class="card win-loss-reset">
+                <div class="win-loss">
+                    <h2>Win: <Span class="wins"></Span></h2>
+                    <h2>Loss: <Span class="loss"></Span></h2>
+                </div>
+                <button>Reset</button>
+            </div>
+            <div class="card timer">
+                <h1>10</h1>
+                <h4>Seconds Remaining...</h4>
+            </div>
+        </div>
+    </main>
+
     <script src="script.js"></script>
 </body>
+
 </html>
