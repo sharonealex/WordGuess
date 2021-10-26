@@ -26,12 +26,35 @@ var maxTime = 10;
 //check lettter on key stroke belongs to the word. if so then place it and fill the blank.
 //if there are no more blanks then give a win. and update DB. and clear the interval.
 
+
+function resetGame(){
+    winCount = 0;
+    lossCount = 0;
+    saveLosses();
+    saveWins();
+}
+function saveWins(){
+    winEl.textContent = winCount;
+    localStorage.setItem("winCount", winCount);
+}
+
+function saveLosses(){
+    lossEl.textContent = lossCount;
+    localStorage.setItem("lossCount", lossCount);
+}
+
 function winGame(){
-    alert("hey")
+    wordBlanksEl.textContent = "YOU WONT!!!!"
+    winCount ++;
+    startButtonEl.disabled = false;
+    saveWins();
 }
 
 function loseGame(){
-    alert("lose game")
+    wordBlanksEl.textContent = "GAME OVER!!";
+    lossCount ++;
+    startButtonEl.disabled = false;
+    saveLosses();
 }
 
 function startTimer(){
@@ -69,8 +92,9 @@ lossEl.textContent = lossCount != null ? lossCount : 0
 function getWins(){
 winCount = localStorage.getItem("winCount")
 winEl.textContent = winCount != null? winCount: 0;
-
 }
+
+resetButtonEl.addEventListener("click", resetGame);
 
 function init(){
     //load all data from db. ie. wins and losses.
